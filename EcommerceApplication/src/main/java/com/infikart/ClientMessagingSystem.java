@@ -1,10 +1,10 @@
 package com.infikart;
 
 import com.infikart.service.MessageService;
-import com.infikart.service.SMSService;
+import com.infikart.factory.MessageFactory;
 
 public class ClientMessagingSystem {
-	private MessageService messageService = new SMSService();
+	private MessageService messageService = MessageFactory.factoryMethod();
 	public void send(String address, String message) {
 		boolean messageStatus = this.messageService.sendMessage(address, message);
 		if(!messageStatus) {
